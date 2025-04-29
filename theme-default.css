@@ -1,0 +1,23 @@
+/* theme-default.css */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f5f5f5;
+    color: #333;
+}
+
+.top-nav {
+    background: linear-gradient(90deg, #e63946, #d62828);
+    color: white;
+}
+
+.left-nav {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.game-card {
+    background-color: #ffffff;
+    color: #333;
+}

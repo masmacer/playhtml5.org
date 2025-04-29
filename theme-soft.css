@@ -1,0 +1,37 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f0f4f8; /* 更浅的蓝灰色背景 */
+    color: #333; /* 柔和的深灰色文字 */
+}
+
+.top-nav {
+    background: linear-gradient(90deg, #6cb2eb, #4a90e2); /* 柔和的蓝色渐变 */
+    color: white;
+}
+
+.left-nav {
+    background-color: #dbe9f1; /* 浅蓝色背景 */
+    color: #333; /* 深灰色文字 */
+}
+
+.game-card {
+    background-color: #ffffff; /* 白色背景 */
+    color: #333; /* 深灰色文字 */
+    border: 1px solid #d1e7f3; /* 浅蓝色边框 */
+}
+
+.top-ad {
+    background-color: #e3f2fd; /* 浅蓝色背景 */
+    color: #0d47a1; /* 深蓝色文字 */
+}
+
+.theme-switcher {
+    background-color: #4a90e2; /* 蓝色按钮背景 */
+    color: white;
+}
+
+.theme-switcher:hover {
+    background-color: #357abd; /* 悬停时更深的蓝色 */
+}
