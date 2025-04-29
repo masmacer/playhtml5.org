@@ -1,50 +1,380 @@
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+/* 基础布局样式 */
+html {
+    scroll-behavior: smooth; /* 启用平滑滚动 */
+    height: 100%;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
 }
 
-h1, h2 {
-    color: #1d4ed8; /* Apple-like blue */
-}
-
-a {
-    color: #1d4ed8;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-.iframe-container {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
-    overflow: hidden;
-}
-
-.iframe-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
     height: 100%;
 }
 
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2.5rem;
-    }
+.layout {
+    display: flex;
+    flex-direction: row; /* 改为水平排列 */
+    height: 100vh; /* 确保布局占满视口高度 */
+    margin: 0 auto; /* 居中对齐 */
+    max-width: 1200px;
+    padding: 20px;
+    gap: 20px; /* 左侧导航栏和主内容之间的间距 */
+}
 
-    h2 {
-        font-size: 1.5rem;
-    }
+.left-nav {
+    position: fixed;
+    margin-top: 80px; /* 距离顶部导航栏的高度 */
+    left: 0;
+    width: 200px; /* 固定宽度 */
+    height: calc(100vh - 50px); /* 高度为视口高度减去顶部导航栏的高度 */
+    background-color: #f0f0f0; /* 背景颜色 */
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+    overflow-y: auto; /* 启用垂直滚动条 */
+    padding: 20px;
+    margin-left: 200px; /* 添加左侧留白 */
+    margin-right: 20px; /* 与主内容区域的间距 */
+    z-index: 1000; /* 确保在导航栏下面 */
+}
 
-    .iframe-container iframe {
-        height: 300px;
-    }
+/* 主内容区域 */
+.main-content {
+    width: 100%; /* 确保宽度不超过视口宽度 */
+    margin-top: 100px; /* 距离顶部导航栏的高度 */
+    margin-left: 240px; /* 为主内容区域留出导航栏的宽度和额外的间距 */
+    width: calc(100% - 240px); /* 减去左侧导航栏的宽度 */
+    margin-right: 50px; /* 添加右侧留白 */
+    flex: none; /* 确保主内容区域填充剩余空间 */
+    min-height: 400px; /* 设置最小高度 */
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* 垂直排列分类 */
+    gap: 20px; /* 每个分类之间的间距 */
+}
+
+.main-content::-webkit-scrollbar {
+    height: 8px; /* 滚动条高度 */
+}
+
+.main-content::-webkit-scrollbar-thumb {
+    background-color: #ccc; /* 滚动条颜色 */
+    border-radius: 4px;
+}
+
+.main-content::-webkit-scrollbar-track {
+    background-color: #f0f0f0; /* 滚动条轨道颜色 */
+}
+
+/* 导航栏 */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px; /* 固定高度 */
+    padding: 10px 20px;
+    z-index: 1001; /* 确保导航栏在左侧导航栏之上 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; /* 背景颜色 */
+}
+
+.top-nav .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.top-nav .search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.top-nav .search-bar input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+    outline: none;
+    font-size: 1rem;
+}
+
+.top-nav .search-bar button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* 顶部广告栏 */
+.top-ad {
+    position: fixed; /* 固定在页面顶部 */
+    top: 50px; /* 设置在导航栏下面 */
+    left: 0;
+    width: 100%; /* 占满宽度 */
+    height: 50px; /* 设置固定高度 */
+    background-color: #f8f9fa; /* 背景颜色 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+    display: flex; /* 使用弹性布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    z-index: 999; /* 确保在导航栏下面但高于其他内容 */
+}
+
+/* Theme Switcher Button */
+.theme-switcher {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #e63946; /* 默认红色背景 */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%; /* 按钮宽度与导航栏一致 */
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.theme-switcher:hover {
+    background-color: #d62828; /* 悬停时更深的红色 */
+}
+
+/* Game Cards */
+.game-card {
+    flex: 0 0 200px; /* 固定宽度为 200px */
+    max-width: 200px; /* 确保宽度不超过 200px */
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    width: 460px; /* 限制卡片宽度 */
+    height: 220px; /* 限制卡片高度 */
+}
+
+.game-card:hover {
+    transform: scale(1.05); /* 鼠标悬停时放大卡片 */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 添加阴影 */
+}
+
+.game-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.game-card h3 {
+    font-size: 1.2rem;
+    margin: 10px;
+    color: #333;
+    white-space: nowrap; /* 单行显示 */
+    overflow: hidden; /* 超出部分隐藏 */
+    text-overflow: ellipsis; /* 显示省略号 */
+}
+
+.game-card p {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 0 10px 10px;
+    display: -webkit-box; /* 使用弹性盒子模型 */
+    -webkit-line-clamp: 2; /* 限制为 2 行 */
+    -webkit-box-orient: vertical; /* 垂直方向排列 */
+    overflow: hidden; /* 超出部分隐藏 */
+    text-overflow: ellipsis; /* 显示省略号 */
+}
+
+/* 图片预览样式 */
+.game-preview img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease; /* 添加平滑动画 */
+}
+
+.game-card:hover .game-preview img {
+    transform: scale(1.1); /* 鼠标悬停时放大图片 */
+}
+
+/* 标题和描述的初始状态 */
+.game-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8); /* 更深的半透明背景 */
+    color: #fff; /* 白色文字 */
+    text-align: center;
+    padding: 10px;
+    opacity: 0; /* 初始隐藏 */
+    visibility: hidden; /* 初始不可见 */
+    transform: translateY(20px); /* 初始位置向下偏移 */
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+
+/* 鼠标悬停时显示标题和描述 */
+.game-card:hover .game-info {
+    opacity: 1; /* 显示 */
+    visibility: visible; /* 可见 */
+    transform: translateY(0); /* 恢复到原始位置 */
+}
+
+/* 标题样式 */
+.game-info h3 {
+    margin: 5px 0;
+    font-size: 1rem; /* 标题字体大小 */
+    color: #fff; /* 确保标题为白色 */
+    white-space: normal; /* 允许换行 */
+    overflow: hidden; /* 超出部分隐藏 */
+    text-overflow: ellipsis; /* 显示省略号 */
+    display: -webkit-box; /* 使用弹性盒子模型 */
+    -webkit-line-clamp: 2; /* 限制为 2 行 */
+    -webkit-box-orient: vertical; /* 垂直方向排列 */
+}
+
+/* 描述样式 */
+.game-info p {
+    margin: 0;
+    font-size: 0.9rem; /* 描述字体大小 */
+    line-height: 1.2; /* 紧凑的行高 */
+    color: #ddd; /* 描述文字为浅灰色，避免过亮 */
+    display: -webkit-box; /* 使用弹性盒子模型 */
+    -webkit-line-clamp: 2; /* 限制为 2 行 */
+    -webkit-box-orient: vertical; /* 垂直方向排列 */
+    overflow: hidden; /* 超出部分隐藏 */
+    text-overflow: ellipsis; /* 显示省略号 */
+}
+
+/* Right Sidebar */
+.right-nav {
+    width: 200px;
+    background-color: #1a1a1a;
+    padding: 20px;
+    box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1);
+    height: calc(100vh - 120px);
+    overflow-y: auto;
+}
+
+.right-ad {
+    text-align: center;
+    background-color: #7f1d1d;
+    padding: 15px;
+    color: #fff;
+    border: 1px solid #b91c1c;
+}
+
+section {
+    display: flex; /* 使用弹性布局 */
+    flex-wrap: wrap; /* 允许换行 */
+    gap: 10px; /* 卡片之间的间距 */
+    margin-bottom: 20px; /* 每个分类之间的间距 */
+}
+
+section h3 {
+    flex: 0 0 100%;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+/* Category Buttons */
+.category-buttons {
+    display: flex;
+    flex-direction: column; /* 垂直排列按钮 */
+    gap: 10px; /* 按钮之间的间距 */
+    margin-top: 20px;
+}
+
+.category-button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #ea2a3a96; /* 默认按钮背景颜色 */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: left; /* 文本左对齐 */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.category-button:hover {
+    background-color: #0056b3; /* 悬停时的背景颜色 */
+    transform: translateY(-2px); /* 悬停时的轻微上移效果 */
+}
+
+.category-button:active {
+    background-color: #003f7f; /* 点击时的背景颜色 */
+    transform: translateY(0); /* 点击时恢复位置 */
+}
+
+/* Back Button */
+.back-button {
+    display: block; /* 独占一行 */
+    width: 100%; /* 按钮宽度占满父容器 */
+    padding: 10px 15px; /* 内边距 */
+    font-size: 1rem; /* 字体大小 */
+    font-weight: bold; /* 字体加粗 */
+    color: #ffffff; /* 按钮文字颜色 */
+    background-color: #007bff; /* 默认按钮背景颜色 */
+    border: none; /* 去掉边框 */
+    border-radius: 4px; /* 圆角 */
+    cursor: pointer; /* 鼠标悬停时显示手型 */
+    text-align: center; /* 文本居中 */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* 添加过渡效果 */
+    margin-bottom: 15px; /* 与其他元素的间距 */
+}
+
+.back-button:hover {
+    background-color: #0056b3; /* 悬停时的背景颜色 */
+    transform: translateY(-2px); /* 悬停时的轻微上移效果 */
+}
+
+.back-button:active {
+    background-color: #003f7f; /* 点击时的背景颜色 */
+    transform: translateY(0); /* 点击时恢复位置 */
+}
+
+/* Hot Games Section */
+#hot-games {
+    margin: 20px 0;
+}
+
+.hot-games-container {
+    display: flex;
+    overflow-x: auto; /* 启用横向滚动 */
+    gap: 10px; /* 卡片之间的间距 */
+    padding: 10px;
+    scroll-behavior: smooth; /* 平滑滚动 */
+    z-index: 1; /* 确保滚动条在其他元素之上 */
+}
+
+.hot-games-container::-webkit-scrollbar {
+    height: 8px; /* 滚动条高度 */
+}
+
+.hot-games-container::-webkit-scrollbar-thumb {
+    background-color: #ec7d7d; /* 滚动条颜色 */
+    border-radius: 4px;
+}
+
+.hot-games-container::-webkit-scrollbar-track {
+    background-color: #f5eaea; /* 滚动条轨道颜色 */
+}
+
+/* Other Categories */
+section:not(#hot-games) {
+    display: flex; /* 使用弹性布局 */
+    flex-wrap: wrap; /* 允许换行 */
+    gap: 10px; /* 卡片之间的间距 */
+    margin-bottom: 20px; /* 每个分类之间的间距 */
+}
+
+section:not(#hot-games) .game-card {
+    flex: 1 1 calc(25% - 20px); /* 每行显示 3 个卡片，间距为 20px */
+    max-width: calc(25% - 20px); /* 确保卡片宽度一致 */
 }
