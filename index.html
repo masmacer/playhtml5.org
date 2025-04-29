@@ -3,50 +3,393 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Play Monster Survivors, an exciting online survival game. Fight monsters, survive waves, and become the ultimate survivor!">
-    <meta name="keywords" content="Monster Survivors, online game, HTML5 game, survival game, play online">
+    <meta name="description" content="Discover and play the best online games.">
+    <meta name="keywords" content="games, online games, game portal">
     <meta name="author" content="playhtml5.org">
-    <link rel="canonical" href="https://playhtml5.org">
-    <title>Monster Survivors - Play Online at PlayHTML5.org</title>
+    <title>Play HTML5 Game Navigator</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+        <!-- Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYTFRH2PK6"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+    
+            gtag('config', 'G-FYTFRH2PK6');
+        </script>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="theme-default.css" id="theme-stylesheet">
 </head>
 <body>
-    <header class="bg-gray-100 text-center py-6">
-        <h1 class="text-4xl font-bold text-gray-800">Monster Survivors</h1>
-        <p class="text-lg text-gray-600 mt-2">An exciting online survival game. Fight monsters and survive the waves!</p>
-    </header>
-
-    <main class="max-w-4xl mx-auto px-4">
-        <section class="mt-8">
-            <h2 class="text-2xl font-semibold text-gray-800">Game Overview</h2>
-            <p class="text-gray-700 mt-2">
-                Monster Survivors is a thrilling survival game where you face endless waves of monsters. Use your skills, strategy, and quick reflexes to defeat enemies and become the ultimate survivor. Play directly in your browser without downloads or installations!
-            </p>
-        </section>
-
-        <section class="mt-8">
-            <h2 class="text-2xl font-semibold text-gray-800">How to Play</h2>
-            <p class="text-gray-700 mt-2">
-                Use your keyboard or touch controls to move, attack, and dodge. Collect power-ups and upgrades to enhance your abilities. Survive as long as you can and aim for the highest score!
-            </p>
-        </section>
-
-        <section class="mt-8">
-            <h2 class="text-2xl font-semibold text-gray-800">Play Now</h2>
-            <div class="iframe-container mt-4">
-                <iframe 
-                    src="https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html" 
-                    title="Monster Survivors Game" 
-                    frameborder="0" 
-                    allowfullscreen 
-                    class="w-full h-96">
-                </iframe>
+    <!-- Top Navigation Bar -->
+    <header class="top-nav">
+        <div class="container">
+            <h1 class="logo">Play HTML5 Game</h1>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for games..." id="search-input">
+                <button id="search-button">Search</button>
             </div>
-        </section>
-    </main>
+        </div>
+    </header>
+    
+    <!-- Below Navigation Bar Advertisement -->
+    <div class="top-ad">
+        <p></p>
+    </div>
 
-    <footer class="bg-gray-100 text-center py-4 mt-8">
-        <p class="text-gray-600 text-sm">© 2025 PlayHTML5.org. All rights reserved.</p>
-    </footer>
+    <div class="layout">
+        <!-- Left Sidebar -->
+        <aside class="left-nav">
+            <h2>Categories</h2>
+            <button id="back-to-home" class="back-button">Back to Home</button>
+            <div class="category-buttons">
+                <button class="category-button" data-target="#action">Action Games</button>
+                <button class="category-button" data-target="#adventure">Adventure Games</button>
+                <button class="category-button" data-target="#puzzle">Puzzle Games</button>
+                <button class="category-button" data-target="#car">Car Games</button>
+            </div>
+            <!-- Theme Switcher Button -->
+            <button id="theme-switcher" class="theme-switcher">Switch Theme</button>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section id="hot-games">
+                <h3>Hot Games</h3>
+                <div class="hot-games-container">
+                    <div class="game-card" data-url="game/monster-survivors.html">
+                        <a href="#" class="game-link">
+                            <div class="game-preview">
+                                <img src="images/monster-survivors.png" alt="Monster Survivors">
+                            </div>
+                            <div class="game-info">
+                                <h3>Monster Survivors</h3>
+                                <p>Exciting action-packed gameplay!</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="game-card" data-url="game/crazy-chicken-3d.html">
+                        <a href="#" class="game-link">
+                            <div class="game-preview">
+                                <img src="images/crazy-chicken-3d.png" alt="Crazy Chicken 3d">
+                            </div>
+                            <div class="game-info">
+                                <h3>Crazy Chicken 3d</h3>
+                                <p></p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="game-card" data-url="crazy-cattle-3d.html">
+                        <a href="#" class="game-link">
+                            <img src="images/crazy-cattle-3d.jpg" alt="crazy-cattle-3d">
+                            <h3>crazy cattle 3d</h3>
+                            <p>Exciting action-packed gameplay!</p>
+                        </a>
+                    </div>
+                    <div class="game-card" data-url="game/sprunki-and-obby-scooter-racing.html">
+                        <a href="#" class="game-link">
+                            <div class="game-preview">
+                                <img src="images/sprunki-and-obby-scooter-racing.png" alt="Sprunki And Obby Scooter Racing">
+                            </div>
+                            <div class="game-info">
+                                <h3>Sprunki And Obby Scooter Racing</h3>
+                                <p></p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="game-card" data-url="game/pokerogue.html">
+                        <a href="#" class="game-link">
+                            <div class="game-preview">
+                                <img src="images/pokerogue.png" alt="pokerogue">
+                            </div>
+                            <div class="game-info">
+                                <h3>pokerogue</h3>
+                                <p></p>
+                            </div>
+                        </a>
+                    </div> 
+                    <div class="game-card" data-url="game/speed-stars.html">
+                        <a href="#" class="game-link">
+                            <div class="game-preview">
+                                <img src="images/speed-stars.png" alt="Speed Stars">
+                            </div>
+                            <div class="game-info">
+                                <h3>Speed Stars</h3>
+                                <p></p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="game-card" data-url="game/baseball-bros-io.html">
+                        <a href="#" class="game-link">
+                            <div class="game-preview">
+                                <img src="images/baseball-bros-io.png" alt="Baseball Bros io">
+                            </div>
+                            <div class="game-info">
+                                <h3>Baseball Bros io</h3>
+                                <p></p>
+                            </div>
+                        </a>
+                    </div> 
+                    <div class="game-card" data-url="game/drift-hunters.html">
+                        <a href="#" class="game-link">
+                            <div class="game-preview">
+                                <img src="images/drift-hunters.png" alt="Drift Hunters">
+                            </div>
+                            <div class="game-info">
+                                <h3>Drift Hunters</h3>
+                                <p></p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- 添加更多游戏卡片 -->
+                </div>
+            </section>
+            <section id="action">
+                <h3>Action Games</h3>
+                <div class="game-card" data-url="game/monster-survivors.html">
+                    <a href="#" class="game-link">
+                        <div class="game-preview">
+                            <img src="images/monster-survivors.png" alt="Monster Survivors">
+                        </div>
+                        <div class="game-info">
+                            <h3>Monster Survivors</h3>
+                            <p></p>
+                        </div>
+                    </a>
+                </div>
+                <div class="game-card" data-url="game/masked-special-forces.html">
+                    <a href="#" class="game-link">
+                        <div class="game-preview">
+                            <img src="images/masked-special-forces.png" alt="Masked Special Forces">
+                        </div>
+                        <div class="game-info">
+                            <h3>Masked Special Forces</h3>
+                            <p></p>
+                        </div>
+                    </a>
+                </div>
+                <div class="game-card" data-url="game/gta-simulator.html">
+                    <a href="#" class="game-link">
+                        <div class="game-preview">
+                            <img src="images/gta-simulator.png" alt="GTA Simulator">
+                        </div>
+                        <div class="game-info">
+                            <h3>GTA Simulator</h3>
+                            <p></p>
+                        </div>
+                    </a>
+                </div>
+                <div class="game-card" data-url="game/squad-shooter.html">
+                    <a href="#" class="game-link">
+                        <div class="game-preview">
+                            <img src="images/squad-shooter.png" alt="Squad Shooter">
+                        </div>
+                        <div class="game-info">
+                            <h3>Squad Shooter</h3>
+                            <p></p>
+                        </div>
+                    </a>
+                </div>
+                <div class="game-card" data-url="game/speed-stars.html">
+                    <a href="#" class="game-link">
+                        <div class="game-preview">
+                            <img src="images/speed-stars.png" alt="Speed Stars">
+                        </div>
+                        <div class="game-info">
+                            <h3>Speed Stars</h3>
+                            <p></p>
+                        </div>
+                    </a>
+                </div>
+                <div class="game-card" data-url="game/baseball-bros-io.html">
+                    <a href="#" class="game-link">
+                        <div class="game-preview">
+                            <img src="images/baseball-bros-io.png" alt="Baseball Bros io">
+                        </div>
+                        <div class="game-info">
+                            <h3>Baseball Bros io</h3>
+                            <p></p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+            <section id="adventure">
+                <h3>Adventure Games</h3>
+                <div class="game-card" data-url="game/crazy-cattle-3d.html">
+                    <a href="#" class="game-link">
+                        <div class="game-preview">
+                            <img src="images/crazy-cattle-3d.jpg" alt="Crazy Cattle 3d">
+                        </div>
+                        <div class="game-info">
+                            <h3>Crazy Cattle 3d</h3>
+                            <p></p>
+                        </div>
+                    </a>
+                </div>
+                <div class="game-card" data-url="game/cheese-chompers-3d.html">
+                    <a href="#" class="game-link">
+                        <div class="game-preview">
+                            <img src="images/cheese-chompers-3d.png" alt="Cheese Chompers 3d">
+                        </div>
+                        <div class="game-info">
+                            <h3>Cheese Chompers 3d</h3>
+                            <p></p>
+                        </div>
+                    </a>
+                </div>
+                <div class="game-card" data-url="game/crazy-chicken-3d.html">
+                    <a href="#" class="game-link">
+                        <div class="game-preview">
+                            <img src="images/crazy-chicken-3d.png" alt="Crazy Chicken 3d">
+                        </div>
+                        <div class="game-info">
+                            <h3>Crazy Chicken 3d</h3>
+                            <p></p>
+                        </div>
+                    </a>
+                </div>
+                <div class="game-card" data-url="game/crazy-sprunki-3d.html">
+                    <a href="#" class="game-link">
+                        <div class="game-preview">
+                            <img src="images/crazy-sprunki-3d.png" alt="Crazy Sprunki 3d">
+                        </div>
+                        <div class="game-info">
+                            <h3>Crazy Sprunki 3d</h3>
+                            <p></p>
+                        </div>
+                    </a>
+                </div>
+                <div class="game-card" data-url="game/pokerogue.html">
+                    <a href="#" class="game-link">
+                        <div class="game-preview">
+                            <img src="images/pokerogue.png" alt="pokerogue">
+                        </div>
+                        <div class="game-info">
+                            <h3>pokerogue</h3>
+                            <p></p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+            <section id="puzzle">
+                <h3>Puzzle Games</h3>
+                <div class="game-card" data-url="game/ancient-2048.html">
+                    <a href="#" class="game-link">
+                        <div class="game-preview">
+                            <img src="images/ancient-2048.png" alt="Ancient 2048">
+                        </div>
+                        <div class="game-info">
+                            <h3>Ancient 2048</h3>
+                            <p></p>
+                        </div>
+                    </a>
+                </div>
+                <div class="game-card" data-url="game/Unpacking.html">
+                    <a href="#" class="game-link">
+                        <div class="game-preview">
+                            <img src="images/Unpacking.png" alt="Unpacking">
+                        </div>
+                        <div class="game-info">
+                            <h3>Unpacking</h3>
+                            <p></p>
+                        </div>
+                    </a>
+                </div>
+                <div class="game-card" data-url="game/Unblocked-It-3D.html">
+                    <a href="#" class="game-link">
+                        <div class="game-preview">
+                            <img src="images/Unblocked-It-3D.png" alt="Unblocked It 3D">
+                        </div>
+                        <div class="game-info">
+                            <h3>Unblocked It 3D</h3>
+                            <p></p>
+                        </div>
+                    </a>
+                </div>
+                <div class="game-card" data-url="game/bloxorz.html">
+                    <a href="#" class="game-link">
+                        <div class="game-preview">
+                            <img src="images/bloxorz.png" alt="bloxorz">
+                        </div>
+                        <div class="game-info">
+                            <h3>bloxorz</h3>
+                            <p></p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+            <section id="car">
+                <h3>Car Games</h3>
+                <div class="game-card" data-url="game/gta-simulator.html">
+                    <a href="#" class="game-link">
+                        <div class="game-preview">
+                            <img src="images/gta-simulator.png" alt="GTA Simulator">
+                        </div>
+                        <div class="game-info">
+                            <h3>GTA Simulator</h3>
+                            <p></p>
+                        </div>
+                    </a>
+                </div>
+                <div class="game-card" data-url="game/carnage-battle-arena.html">
+                    <a href="#" class="game-link">
+                        <div class="game-preview">
+                            <img src="images/carnage-battle-arena.png" alt="Carnage Battle Arena">
+                        </div>
+                        <div class="game-info">
+                            <h3>Carnage Battle Arena</h3>
+                            <p></p>
+                        </div>
+                    </a>
+                </div>
+                <div class="game-card" data-url="game/traffic-jam-3d.html">
+                    <a href="#" class="game-link">
+                        <div class="game-preview">
+                            <img src="images/traffic-jam-3d.png" alt="Traffic Jam 3d">
+                        </div>
+                        <div class="game-info">
+                            <h3>Traffic Jam 3d</h3>
+                            <p></p>
+                        </div>
+                    </a>
+                </div>
+                <div class="game-card" data-url="game/mafia-getaway-cars.html">
+                    <a href="#" class="game-link">
+                        <div class="game-preview">
+                            <img src="images/mafia-getaway-cars.png" alt="Mafia Getaway Cars">
+                        </div>
+                        <div class="game-info">
+                            <h3>Mafia Getaway Cars</h3>
+                            <p></p>
+                        </div>
+                    </a>
+                </div>
+                <div class="game-card" data-url="game/sprunki-and-obby-scooter-racing.html">
+                    <a href="#" class="game-link">
+                        <div class="game-preview">
+                            <img src="images/sprunki-and-obby-scooter-racing.png" alt="Sprunki And Obby Scooter Racing">
+                        </div>
+                        <div class="game-info">
+                            <h3>Sprunki And Obby Scooter Racing</h3>
+                            <p></p>
+                        </div>
+                    </a>
+                </div>
+                <div class="game-card" data-url="game/drift-hunters.html">
+                    <a href="#" class="game-link">
+                        <div class="game-preview">
+                            <img src="images/drift-hunters.png" alt="Drift Hunters">
+                        </div>
+                        <div class="game-info">
+                            <h3>Drift Hunters</h3>
+                            <p></p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
