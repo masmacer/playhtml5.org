@@ -38,40 +38,6 @@ body {
     z-index: 1000; /* 确保在导航栏下面 */
 }
 
-/* 小屏幕适配 */
-@media (max-width: 768px) {
-    .left-nav {
-        position: fixed; /* 改为相对定位 */
-        width: 20; /* 占满屏幕宽度 */
-        height: auto; /* 自动调整高度 */
-        margin: 0; /* 去除外边距 */
-        padding: 10px; /* 添加内边距 */
-        box-shadow: none; /* 移除阴影 */
-    }
-
-    .main-content {
-        margin-left: 0; /* 去除左侧导航栏的宽度 */
-        width: 100%; /* 主内容区域占满屏幕宽度 */
-    }
-    
-    /* 游戏卡片适配 */
-    .game-card {
-        flex: 1 1 100%; /* 每行显示一个卡片 */
-        max-width: 100%; /* 确保宽度占满屏幕 */
-        height: auto; /* 自动调整高度 */
-    }
-
-    /* 热门游戏容器适配 */
-    .hot-games-container {
-        flex-wrap: wrap; /* 允许换行 */
-        gap: 10px; /* 卡片之间的间距 */
-    }
-    section:not(#hot-games) .game-card {
-        flex:  1 1 100%; /* 每行显示 3 个卡片，间距为 20px */
-        max-width: 100%; /* 确保宽度占满屏幕 */
-        height: auto; /* 自动调整高度 */
-    }
-}
 /* 主内容区域 */
 .main-content {
     width: 100%; /* 确保宽度不超过视口宽度 */
@@ -411,4 +377,38 @@ section:not(#hot-games) {
 section:not(#hot-games) .game-card {
     flex: 1 1 calc(25% - 20px); /* 每行显示 3 个卡片，间距为 20px */
     max-width: calc(25% - 20px); /* 确保卡片宽度一致 */
+}
+/* 小屏幕适配 */
+@media (max-width: 768px) {
+    .left-nav {
+        position: fixed; /* 改为相对定位 */
+        width: 20; /* 占满屏幕宽度 */
+        height: auto; /* 自动调整高度 */
+        margin: 0; /* 去除外边距 */
+        padding: 10px; /* 添加内边距 */
+        box-shadow: none; /* 移除阴影 */
+    }
+
+    .main-content {
+        margin-left: 100px; /* 去除左侧导航栏的宽度 */
+        width: 100%; /* 主内容区域占满屏幕宽度 */
+    }
+    
+    /* 游戏卡片适配 */
+    .game-card {
+        flex: 1 1 100%; /* 每行显示一个卡片 */
+        max-width: 100%; /* 确保宽度占满屏幕 */
+        height: auto; /* 自动调整高度 */
+    }
+
+    /* 热门游戏容器适配 */
+    .hot-games-container {
+        flex-wrap: wrap; /* 允许换行 */
+        gap: 10px; /* 卡片之间的间距 */
+    }
+    section:not(#hot-games) .game-card {
+        flex:  1 1 100%; /* 每行显示 3 个卡片，间距为 20px */
+        max-width: 100%; /* 确保宽度占满屏幕 */
+        height: auto; /* 自动调整高度 */
+    }
 }
