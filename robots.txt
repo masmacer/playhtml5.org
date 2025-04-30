@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /admin/          # 禁止爬取后台管理页面（如果有）
+Disallow: /private/        # 禁止爬取私人目录（如果有）
+Disallow: /temp/           # 禁止爬取临时文件夹（如果有）
+
+Allow: /                   # 允许爬取所有其他内容
+
+Sitemap: https://playhtml5.org/sitemap.xml
