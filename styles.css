@@ -382,7 +382,7 @@ section:not(#hot-games) .game-card {
 @media (max-width: 768px) {
     .left-nav {
         position: fixed; /* 改为相对定位 */
-        width: 20; /* 占满屏幕宽度 */
+        width: 100px; /* 占满屏幕宽度 */
         height: auto; /* 自动调整高度 */
         margin: 0; /* 去除外边距 */
         padding: 10px; /* 添加内边距 */
