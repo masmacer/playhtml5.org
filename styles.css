@@ -15,12 +15,12 @@ body {
 
 .layout {
     display: flex;
-    flex-direction: row; /* 改为水平排列 */
-    height: 100vh; /* 确保布局占满视口高度 */
-    margin: 0 auto; /* 居中对齐 */
+    flex-direction: row;
+    min-height: 100vh; /* 改为 min-height，而不是固定 height */
+    margin: 0 auto;
     max-width: 1200px;
     padding: 20px;
-    gap: 20px; /* 左侧导航栏和主内容之间的间距 */
+    gap: 20px;
 }
 
 .left-nav {
@@ -40,17 +40,18 @@ body {
 
 /* 主内容区域 */
 .main-content {
-    width: 100%; /* 确保宽度不超过视口宽度 */
-    margin-top: 100px; /* 距离顶部导航栏的高度 */
-    margin-left: 240px; /* 为主内容区域留出导航栏的宽度和额外的间距 */
-    width: calc(100% - 240px); /* 减去左侧导航栏的宽度 */
-    margin-right: 50px; /* 添加右侧留白 */
-    flex: none; /* 确保主内容区域填充剩余空间 */
-    min-height: 400px; /* 设置最小高度 */
+    width: 100%;
+    margin-top: 100px;
+    margin-left: 240px;
+    width: calc(100% - 240px);
+    margin-right: 50px;
+    flex: 1; /* 改为 flex: 1，让主内容区域填充剩余空间 */
+    min-height: auto; /* 移除固定的最小高度 */
     padding: 20px;
     display: flex;
-    flex-direction: column; /* 垂直排列分类 */
-    gap: 20px; /* 每个分类之间的间距 */
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 50px; /* 确保内容与页脚之间有足够间距 */
 }
 
 .main-content::-webkit-scrollbar {
@@ -72,19 +73,40 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 50px; /* 固定高度 */
+    height: 50px;
     padding: 10px 20px;
-    z-index: 1001; /* 确保导航栏在左侧导航栏之上 */
+    z-index: 1001;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff; /* 背景颜色 */
+    background-color: #ffffff; /* 统一为白色背景 */
+    box-sizing: border-box;
+}
+
+.top-nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .top-nav .logo {
     font-size: 1.8rem;
     font-weight: bold;
+    color: #2c3e50; /* 统一文字颜色 */
+    text-decoration: none;
+}
+
+.top-nav .logo a {
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+.top-nav .logo a:hover {
+    color: #3498db;
 }
 
 .top-nav .search-bar {
@@ -99,6 +121,7 @@ body {
     margin-right: 10px;
     outline: none;
     font-size: 1rem;
+    background-color: #fff;
 }
 
 .top-nav .search-bar button {
@@ -107,21 +130,28 @@ body {
     border-radius: 4px;
     cursor: pointer;
     font-size: 1rem;
+    background-color: #3498db;
+    color: white;
+    transition: background-color 0.3s ease;
 }
 
-/* 顶部广告栏 */
+.top-nav .search-bar button:hover {
+    background-color: #2980b9;
+}
+
+/* 统一顶部广告栏样式 */
 .top-ad {
-    position: fixed; /* 固定在页面顶部 */
-    top: 50px; /* 设置在导航栏下面 */
+    position: fixed;
+    top: 70px; /* 调整位置，确保在导航栏下面 */
     left: 0;
-    width: 100%; /* 占满宽度 */
-    height: 50px; /* 设置固定高度 */
-    background-color: #f8f9fa; /* 背景颜色 */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加阴影 */
-    display: flex; /* 使用弹性布局 */
-    justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
-    z-index: 999; /* 确保在导航栏下面但高于其他内容 */
+    width: 100%;
+    height: 30px; /* 调整高度 */
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
 }
 
 /* Theme Switcher Button */
@@ -378,6 +408,97 @@ section:not(#hot-games) .game-card {
     flex: 1 1 calc(25% - 20px); /* 每行显示 3 个卡片，间距为 20px */
     max-width: calc(25% - 20px); /* 确保卡片宽度一致 */
 }
+
+/* Footer Styles */
+.footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 40px 0 20px;
+    margin-top: 50px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    margin-left: 240px; /* 为左侧导航栏留出空间 */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.footer-section h3 {
+    color: #3498db;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.footer-section p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #bdc3c7;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #3498db;
+}
+
+.footer-bottom {
+    border-top: 1px solid #34495e;
+    margin-top: 30px;
+    padding-top: 20px;
+    text-align: center;
+    color: #95a5a6;
+    font-size: 14px;
+    margin-left: 240px; /* 为左侧导航栏留出空间 */
+}
+
+/* Footer Responsive Design */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .footer {
+        padding: 30px 0 15px;
+    }
+    
+    .footer-section h3 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .footer {
+        padding: 25px 0 15px;
+    }
+}
+
 /* 小屏幕适配 */
 @media (max-width: 768px) {
     .left-nav {
@@ -411,4 +532,117 @@ section:not(#hot-games) .game-card {
         max-width: 100%; /* 确保宽度占满屏幕 */
         height: auto; /* 自动调整高度 */
     }
+}
+
+/* 只修改页脚样式，为左侧导航栏留出空间 */
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    margin-left: 240px; /* 为左侧导航栏留出空间 */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.footer-bottom {
+    border-top: 1px solid #34495e;
+    margin-top: 30px;
+    padding-top: 20px;
+    text-align: center;
+    color: #95a5a6;
+    font-size: 14px;
+    margin-left: 240px; /* 为左侧导航栏留出空间 */
+}
+
+/* 移动端移除左边距 */
+@media (max-width: 768px) {
+    .footer-container {
+        margin-left: 0;
+    }
+    
+    .footer-bottom {
+        margin-left: 0;
+    }
+}
+
+/* Policy Pages Styles */
+.policy-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    line-height: 1.6;
+    color: #333;
+    margin-top: 20px; /* 为顶部导航栏和广告栏留出空间 */
+}
+
+.policy-container h1 {
+    color: #2c3e50;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.policy-container h2 {
+    color: #34495e;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.policy-container .last-updated {
+    color: #7f8c8d;
+    font-style: italic;
+    margin-bottom: 30px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-left: 4px solid #3498db;
+}
+
+.policy-container section {
+    margin-bottom: 25px;
+}
+
+.policy-container ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.policy-container li {
+    margin-bottom: 8px;
+}
+
+.policy-container a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.policy-container a:hover {
+    text-decoration: underline;
+}
+
+.policy-container strong {
+    color: #2c3e50;
+}
+
+/* Dark theme support for policy pages */
+body.dark-theme .policy-container {
+    color: #ecf0f1;
+}
+
+body.dark-theme .policy-container h1 {
+    color: #ecf0f1;
+}
+
+body.dark-theme .policy-container h2 {
+    color: #bdc3c7;
+}
+
+body.dark-theme .policy-container .last-updated {
+    background-color: #34495e;
+    color: #bdc3c7;
+}
+
+body.dark-theme .policy-container strong {
+    color: #ecf0f1;
 }
